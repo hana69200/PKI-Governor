@@ -1,4 +1,4 @@
-k# 🛡️ PKI Governor v2.0 - Audit & Threat Intelligence
+# 🛡️ PKI Governor v2.0 - Audit & Threat Intelligence
 
 **PKI Governor** est un outil d'audit de sécurité spécialisé dans l'analyse des certificats SSL/TLS et la découverte de sous-domaines (OSINT). Conçu pour un usage en milieu professionnel (Niveau N3), il permet de surveiller la conformité cryptographique d'un parc de domaines et de détecter d'éventuelles menaces.
 
