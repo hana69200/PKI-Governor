@@ -1,21 +1,35 @@
-# 🛡️ PKI Governor
+k# 🛡️ PKI Governor v2.0 - Audit & Threat Intelligence
 
-Un outil d'audit et de gouvernance automatisé pour la surveillance des certificats SSL/TLS, développé en Python.
+**PKI Governor** est un outil d'audit de sécurité spécialisé dans l'analyse des certificats SSL/TLS et la découverte de sous-domaines (OSINT). Conçu pour un usage en milieu professionnel (Niveau N3), il permet de surveiller la conformité cryptographique d'un parc de domaines et de détecter d'éventuelles menaces.
 
-## 🎯 Le problème métier (Pourquoi cet outil ?)
-Dans les architectures complexes (Cloud, architectures n-tiers, milieux industriels/OT), l'expiration silencieuse d'un certificat SSL/TLS est l'une des causes principales d'interruption de service critique. 
-Cet outil répond à un besoin de **Gouvernance N3** : auditer en masse un parc de noms de domaine, anticiper les expirations et alerter les équipes opérationnelles avant que la panne ou la faille de sécurité ne se produise.
+---
 
-## ✨ Fonctionnalités
-- **Audit de masse :** Lecture depuis un fichier texte de configuration.
-- **Vérification cryptographique :** Connexion directe au socket sécurisé pour récupérer le certificat public réel (sans dépendre d'API tierces).
-- **Triage intelligent :** Calcul des jours restants et mise en évidence des domaines à risque selon un seuil personnalisable.
-- **DevSecOps friendly :** Code robuste (gestion des timeouts, des erreurs DNS et des certificats auto-signés) utilisant uniquement des bibliothèques standards.
+## 🚀 Fonctionnalités Clés
 
-## 🚀 Installation & Prérequis
-Ce projet ne nécessite aucune dépendance externe lourde. Il utilise uniquement les bibliothèques standards de Python 3.
+- **Découverte OSINT Multi-sources** : Identification automatique des sous-domaines via `crt.sh`, `HackerTarget` et `VirusTotal`.
+- **Audit Cryptographique Profond** : 
+    - Analyse de la robustesse des clés (Distinction entre **RSA** et **ECC 256** "Ultra-Moderne").
+    - Vérification des algorithmes de signature (ex: **SHA-256**).
+    - Calcul précis des jours restants avant expiration.
+- **Threat Intelligence** : Intégration des scores de réputation **VirusTotal** pour identifier les domaines malveillants.
+- **Rapports Professionnels** : Génération automatique d'un rapport **HTML** moderne et visuel avec badges de sécurité.
+- **Gestion des Erreurs** : Identification et rapport des erreurs de résolution DNS (Shadow IT).
+
+---
+
+## 🛠️ Installation et Prérequis
+
+Le projet utilise un environnement virtuel Python pour garantir la stabilité du système et isoler les dépendances.
+
+### 1. Installation de la bibliothèque Cryptography
+Nous utilisons la bibliothèque `cryptography` pour l'analyse avancée des certificats. L'installation se fait dans un environnement virtuel (`venv`).
 
 ```bash
-# Cloner le dépôt
-git clone [https://github.com/hana69200/PKI-Governor.git](https://github.com/hana69200/PKI-Governor.git)
-cd PKI-Governor
+# Créer l'environnement virtuel
+python3 -m venv .venv
+
+# Activer l'environnement
+source .venv/bin/activate
+
+# Installer les dépendances nécessaires
+pip install cryptography requests
